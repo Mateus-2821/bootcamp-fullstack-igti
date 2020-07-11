@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+    }
+
+    .container {
+      width: 96%;
+      margin: auto;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    main h1 {
+      font-size: 22px;
+      margin: 20px;
+    }
+
+    main h2 {
+      margin-bottom: 5px;
+    }
+
+    main output {
+      font-size: 18px;
+    }
+
+    main section {
+      border: 2px solid #ccc;
+      padding: 10px;
+    }
+
+    main section > div {
+      margin-bottom: 20px;
+    }
+
+    main div div {
+      width: 200px;
+      height: 30px;
+      margin: 10px auto;
+    }
+
+    main #red div {
+      background-color: red;
+    }
+
+    main #green div {
+      background-color: green;
+    }
+
+    main #blue div {
+      background-color: blue;
+    }
+
+    main #result {
+      width: 100%;
+      height: 30px;
+      margin: 0;
+    }    
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    @media screen and (min-width: 640px) {
+      main section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 600px;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>RGB (Red, Green, Blue)</h1>
+    <section>
+      <div id="red">
+        <h2>Red</h2>
+        <output>255</output>  
+        <div></div>
+        <input type="range" min="0" max="255" value="255">
+      </div>
+      <div id="green">
+        <h2>Green</h2>
+        <output>255</output>  
+        <div></div>
+        <input type="range" min="0" max="255" value="255">
+      </div>
+      <div id="blue">
+        <h2>Blue</h2>
+        <output>255</output>  
+        <div></div>
+        <input type="range" min="0" max="255" value="255">
+      </div>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <footer>Criado por <a href="https://github.com/diasjoaovitor" target="_blank">João Vitor</a></footer>
+
+  <script>
+    const inputs = document.querySelectorAll('input')
+
+    inputs.forEach(input => {
+      input.oninput = () => {
+        const outputs = document.querySelectorAll('output')
+        const result = document.getElementById('result')
+
+        const red = inputs[0].value
+        const green = inputs[1].value
+        const blue = inputs[2].value
+
+        outputs[0].innerHTML = red
+        outputs[1].innerHTML = green
+        outputs[2].innerHTML = blue
+
+        inputs[0].previousElementSibling.style.backgroundColor = `rgb(${red}, 0, 0)`
+        inputs[1].previousElementSibling.style.backgroundColor = `rgb(0, ${green}, 0)`
+        inputs[2].previousElementSibling.style.backgroundColor = `rgb(0, 0, ${blue})`
+
+        result.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+      }
+    })
+  </script>
+</body>
+</html>
