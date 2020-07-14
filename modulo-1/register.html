@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      text-align: center;
+      background-color: #fdfdfd;
+      color: #444;
+    }
+
+    header h1 {
+      margin: 20px 0 10px;
+      color: #595959;
+    }
+
+    main {
+      width: 96%;
+      max-width: 600px;
+      margin: auto;
+      border-top: 2px solid #B3B3B3;
+      border-bottom: 2px solid #B3B3B3;
+      padding: 20px 10px;
+      box-sizing: border-box;
+    }
+
+    main input {
+      width: 80%;
+      max-width: 300px;
+      height: 30px;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #B3B3B3;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    main button {
+      width: 40px;
+      height: 30px;
+      border: none;
+      outline: none;
+      background-color: #8C8C8C;
+      color: #f9f9f9;
+      cursor: pointer;
+      transition: .5s;
+    }
+
+    main button:hover {
+      background-color: #595959;
+    }
+
+    main section {
+      text-align: left;
+    }
+
+    main h2 {
+      margin: 20px 0 10px;
+    }
+
+    main li {
+      list-style: inside;
+    }
+
+    main li {
+      margin-bottom: 5px;
+      clear: right;
+    }
+
+    main li:last-child {
+      margin: 0;
+    }
+
+    main i {
+      float: right;
+      background-color: #f4f4f4;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: .5s;
+    }
+
+    main i:hover {
+      background-color: #bfbfbf;
+    }
+
+    footer {
+      margin-top: 15px;
+      color: #595959;
+    }
+
+    footer p {
+      margin-bottom: 5px;
+    }
+
+    footer a {
+      color: #595959;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cadastro</h1>
+  </header>
+
+  <main>
+    <input type="text" placeholder="nome" minlength="1" autofocus>
+    <button>Add</button>
+    <section>
+      <h2>Nomes Cadastrados</h2>
+      <ul>
+        <li>nenhum nome cadastrado</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Created By João Vitor</p>
+    <p>
+      <a href="https://github.com/diasjoaovitor" target="_blank"><em>GitHub</em></a>
+    </p>
+  </footer>
+
+  <script>
+    class Resgister {
+      constructor() {
+        this.event()
+      }
+
+      event() {
+        const input = document.querySelector('input')
+        const array = []
+        const indexLi = []
+        let registerMode = true
+
+        input.addEventListener('keyup', e => {
+          if(e.key === 'Enter' && input.value !== '') {
+            if(registerMode) {
+              this.register(array, input.value)
+              this.render(array)
+              input.value = ''
+            } else {
+              this.edit(array, indexLi[indexLi.length - 1], input.value)
+              this.render(array)
+              input.value = ''
+              registerMode = true
+            }
+          }
+        })
+
+        document.addEventListener('click', e => {
+          const index = array.indexOf(e.target.parentElement.textContent.replace('editremove', ''))
+          if(e.target.tagName === 'BUTTON' && input.value !== '') {
+            input.focus()
+            
+            if(registerMode) {
+              this.register(array, input.value)
+              this.render(array)
+              input.value = ''
+            } else {
+              this.edit(array, indexLi[indexLi.length - 1], input.value)
+              this.render(array)
+              input.value = ''
+              registerMode = true
+            }
+          }
+
+          if(e.target.textContent === 'remove') {
+            this.remove(array, index)
+            this.render(array)
+            input.focus()
+          }
+
+          if(e.target.textContent === 'edit') {
+            registerMode = false
+            input.focus()
+            input.value = e.target.parentElement.textContent.replace('editremove', '')
+            indexLi.push(index)
+          }  
+        })
+      }
+
+      register(array, name) {
+        array.push(name)
+      }
+
+      remove(array, index) {
+        array.splice(index, 1)
+      }
+
+      edit(array, index, name) {
+        array.splice(index, 1, name)
+      }
+
+      render(array) {
+        const ul = document.querySelector('ul')
+        ul.innerHTML = ''
+
+        if(array.length === 0)
+          ul.innerHTML = '<li>nenhum nome cadastrado</li>'
+
+        array.forEach(name => {          
+          const li = document.createElement('li')
+          const removeIcon = document.createElement('i')
+          const editIcon = document.createElement('i')
+
+          removeIcon.classList.add('material-icons')
+          editIcon.classList.add('material-icons')
+
+          removeIcon.innerHTML = 'remove'
+          editIcon.innerHTML = 'edit'
+
+          li.innerHTML = name
+
+          li.appendChild(editIcon)
+          li.appendChild(removeIcon)
+          ul.appendChild(li)
+        })
+      }
+    }
+
+    new Resgister
+  </script>
+</body>
+</html>
