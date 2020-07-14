@@ -1,6 +1,13 @@
-<h3>Projetos desenvolvidos durante o Bootcamp Fullstack da IGTI</h3>
+<h1>Projetos desenvolvidos durante o Bootcamp Fullstack da IGTI</h1>
 
-o projeto color-picker do módulo 1, foi desenvolvido com base na interface encontrada neste link: https://www.w3schools.com/colors/colors_picker.asp
-
-
-
+<hr>
+<h2>Módulo 1</h2>
+<ul>
+  <li>
+    <h3>Color Picker</h3>
+    Foi o primeiro trabalho prático do bootcamp, sendo este uma interface para visualização de cores em rgb.
+    <br>
+    A interface foi desenvolvida com base no modelo disponível no W3Schools: https://www.w3schoolrs_picker.asp
+  </li>
+</ul>
+<hr>
