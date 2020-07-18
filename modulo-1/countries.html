@@ -107,6 +107,12 @@
     footer a {
       color: #333;
     }
+
+    @media screen and (max-width: 400px) {
+      main figure {
+        width: 90%;
+      }
+    }
     
   </style>
 </head>
@@ -176,7 +182,7 @@
 
             this.listFavorites.forEach(country => {
               const { flag, name, capital, area, region , population } = country
-              this.render(this.favorites, flag, name, capital, area, region , population)
+              this.render(this.favorites, flag, name, capital, Intl.NumberFormat('pt-br').format(area), region, Intl.NumberFormat('pt-br').format(population))
 
               this.favorites.querySelectorAll('button').forEach(button => {
                 button.classList.add('remove')
@@ -187,7 +193,7 @@
             this.listCountries.forEach(country => {
               const { flag, name, capital, area, region , population } = country
           
-              this.render(this.countries, flag, name, capital, area, region , population)
+              this.render(this.countries, flag, name, capital, Intl.NumberFormat('pt-br').format(area), region, Intl.NumberFormat('pt-br').format(population))
             })
           }
         })
