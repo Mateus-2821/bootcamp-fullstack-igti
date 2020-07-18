@@ -5,9 +5,17 @@
 <ul>
   <li>
     <h3>Color Picker</h3>
-    Foi o primeiro trabalho prático do bootcamp, sendo este uma interface para visualização de cores em rgb.
+    Foi o primeiro trabalho prático do bootcamp, sendo este, uma interface para visualização de cores em rgb.
     <br>
     A interface foi desenvolvida com base no modelo disponível no W3Schools: https://www.w3schoolrs_picker.asp
+  </li>
+  <li>
+    <h3>Register</h3>
+    Foi o primeiro desafio guiado do bootcamp, sendo este, um app de cadastro, onde também é possível remover ou editar um cadastro.
+  </li>
+  <li>
+    <h3>Countries</h3>
+    Segundo desafio guiado do bootcamp, sendo este, uma interface que consome dados sobre países, obtidos através de uma requisição http usando <strong>fetch</strong>.
   </li>
 </ul>
 <hr>
