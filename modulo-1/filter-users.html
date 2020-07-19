@@ -125,7 +125,7 @@
       }
     }
 
-    @media (max-width: 930px) {
+    @media (max-width: 940px) {
       main input {
         width: 630px;
       }
@@ -232,7 +232,7 @@
           const span = document.createElement('span')
 
           img.setAttribute('src', large)
-          span.textContent = `${first} ${last}, ${age}, anos`
+          span.textContent = `${first} ${last}, ${age} anos`
 
           li.appendChild(img)
           li.appendChild(span)
@@ -253,7 +253,8 @@
         const averageAges = sumAges / this.results.length
 
         l1.textContent = 'Sexo masculino: ' + totalMale.length
-        l2.textContent = 'Sexo feminino: ' + totalFemale.length
+        l2.textContent = 'Sexo feminino: ' + totalFemale.length 
+
         l3.textContent = 'Soma das idades: ' + sumAges
         l4.textContent = 'Média das idades: ' + averageAges.toFixed(2)
 

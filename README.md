@@ -17,5 +17,9 @@
     <h3>Countries</h3>
     Segundo desafio guiado do bootcamp, sendo este, uma interface que consome dados sobre países, obtidos através de uma requisição http usando <strong>fetch</strong>.
   </li>
+  <li>
+    <h3>Filter Users</h3>
+    Desafio final do módulo, sendo este, uma interface de pesquisa, onde é possível fazer a filtragem por gênero, idade ou no mínimo uma letra contida no nome, os dados foram obtidos de uma api, usando <strong>fetch</strong>.
+  </li>
 </ul>
 <hr>
