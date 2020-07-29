@@ -212,6 +212,7 @@
         })
 
         this.result.innerHTML = ''
+        this.statistics.innerHTML = ''
         this.renderResult()
         this.renderStatistics()
         this.results = []
@@ -264,12 +265,11 @@
         l3.textContent = 'Soma das idades: ' + sumAges
         l4.textContent = 'Média das idades: ' + averageAges.toFixed(2)
 
-        this.statistics.querySelector('p').style.display = 'none'
-
         ul.appendChild(l1)
         ul.appendChild(l2)
         ul.appendChild(l3)
         ul.appendChild(l4)
+        
         this.statistics.appendChild(ul)
       }
     }
