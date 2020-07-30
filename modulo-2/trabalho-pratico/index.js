@@ -10,6 +10,10 @@ class Main {
     console.log('=======================================================')
   }
 
+  onlyNumbers(sentence) {
+    return sentence.replace(/\D+/g, '')
+  }
+
   async read() {
     try {
       const readStates = JSON.parse(await fs.readFile('Estados.json'))
@@ -64,8 +68,8 @@ class Main {
       })
     })
 
-    const topFive = totalCities.sort((a, b) => a.replace(/\D+/g, '') - b.replace(/\D+/g, '')).slice(-5).reverse()
-    const bottomFive = totalCities.sort((a, b) => a.replace(/\D+/g, '') - b.replace(/\D+/g, '')).slice(0, 5).reverse()
+    const topFive = totalCities.sort((a, b) => this.onlyNumbers(a) - this.onlyNumbers(b)).slice(-5).reverse()
+    const bottomFive = totalCities.sort((a, b) => this.onlyNumbers(a) - this.onlyNumbers(b)).slice(0, 5).reverse()
 
     this.createLine()
     console.log('> Os cinco estados com mais cidades são:', topFive)
@@ -93,13 +97,13 @@ class Main {
     console.log('> A cidade com mais letras de cada Estado é:')
 
     for(let pos in citiesOfState) 
-      console.log(citiesOfState[pos].sort((a, b) => a.replace(/\D+/g, '') - b.replace(/\D+/g, ''))[citiesOfState[pos].length - 1])
+      console.log(citiesOfState[pos].sort((a, b) => this.onlyNumbers(a) - this.onlyNumbers(b))[citiesOfState[pos].length - 1])
     
     this.createLine()
     console.log('> A cidade com menos letras de cada Estado é:')
 
     for(let pos in citiesOfState) 
-      console.log(citiesOfState[pos].sort((a, b) => a.replace(/\D+/g, '') - b.replace(/\D+/g, ''))[0])
+      console.log(citiesOfState[pos].sort((a, b) => this.onlyNumbers(a) - this.onlyNumbers(b))[0])
   }
 
   async maxMinLettersAll() {
@@ -110,19 +114,19 @@ class Main {
       allCities.push(`${city.Nome}: ${letter}`)
     })
 
-    allCities.sort((a, b) => a.replace(/\D+/g, '') - b.replace(/\D+/g, ''))
+    allCities.sort((a, b) => this.onlyNumbers(a) - this.onlyNumbers(b))
 
-    const maxLength = allCities[allCities.length - 1].replace(/\D+/g, '')
+    const maxLength = this.onlyNumbers(allCities[allCities.length - 1])
     const maxLengthCities = []
 
-    const minLength = allCities[0].replace(/\D+/g, '')
+    const minLength = this.onlyNumbers(allCities[0])
     const minLengthCities = []
 
     allCities.forEach(city => {
-      if(city.replace(/\D+/g, '') == maxLength)
+      if(this.onlyNumbers(city) == maxLength)
         maxLengthCities.push(city)
 
-      if(city.replace(/\D+/g, '') == minLength)
+      if(this.onlyNumbers(city) == minLength)
         minLengthCities.push(city)
     })
 
