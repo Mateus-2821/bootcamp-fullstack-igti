@@ -80,7 +80,7 @@ class Controller {
     if(!id)
       return res.send('id does not exist')
 
-    delete data.grades[req.params.id - 1]
+    data.grades = data.grades.filter(grade => grade.id != req.params.id)
 
     await fs.writeFile('grades.json', JSON.stringify(data, null, 2))
 
