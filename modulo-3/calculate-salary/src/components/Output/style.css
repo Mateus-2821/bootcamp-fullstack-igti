@@ -1,0 +1,10 @@
+output {
+  width: 100%;
+  display: block;
+  padding-bottom: 2px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 18px;
+  font-weight: bold;
+}
