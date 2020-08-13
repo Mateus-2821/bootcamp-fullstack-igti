@@ -93,7 +93,7 @@ function format(number) {
 }
 
 function formatPercent(number) {
-  return `(${number.replace('.', ',')}%)`
+  return Intl.NumberFormat('pt-br').format(number)
 }
 
 function calculateSalaryFrom(fullSalary) {
@@ -112,12 +112,12 @@ function calculateSalaryFrom(fullSalary) {
     fullSalary,
     baseINSS: format(baseINSS),
     discountINSS: format(discountINSS),
-    percentINSS: formatPercent(String(percentINSS)),
+    percentINSS: formatPercent(percentINSS),
     baseIRPF: format(baseIRPF),
     discountIRPF: format(discountIRPF),
-    percentIRPF: formatPercent(String(percentIRPF)),
+    percentIRPF: formatPercent(percentIRPF),
     netSalary: format(netSalary),
-    percentNetSalary: formatPercent(String(percentNetSalary)),
+    percentNetSalary: formatPercent(percentNetSalary),
   };
 }
 

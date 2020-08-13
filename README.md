@@ -23,6 +23,7 @@
   </li>
 </ul>
 <hr>
+
 <h2>Módulo 2</h2>
 <ul>
   <li>
@@ -30,6 +31,21 @@
     O trabalho prático do módulo 2, consiste em criar uma aplicação que ler e grava arquirvos, usando o File Systen do Node. 
     <br>
     Os arquivos lidos foram obtidos desse repositório: https://github.com/felipefdl/cidades-estados-brasil-json
+  </li>
+  <li>
+    <h3>Grades Control API</h3>
+    Desafio final do módulo, sendo este, uma API que busca e faz alterações em um arquivo json, servindo para controlar um serviço de notas de alunos. 
+  </li>
+</ul>
+<hr>
+
+<h2>Módulo 3</h2>
+<ul>
+  <li>
+    <h3>Calculate Salary</h3>
+    Foi trabalho prático do módulo 3, consiste em criar uma aplicação em <strong>React</strong>, que recebe o salário bruto e calcula o salário líquido.
+    <br>
+    O arquivo que faz os cálculos, foi fornecido pelo professor.
   </li>
 </ul>
 <hr>

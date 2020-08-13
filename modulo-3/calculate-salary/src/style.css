@@ -15,12 +15,49 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-sizing: border-box;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
 }
 
-span {
+label span {
   display: block;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
   margin-top: 20px;
+  color: #555;
+}
+
+label:nth-child(3) output {
+  color: #E67E22;
+}
+
+label:nth-child(5) output {
+  color: #C0392B;
+}
+
+label:nth-child(6) output {
+  color: #16A085;
+}
+
+main div {
+  margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+  section  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  label {
+    width: 48%;
+  }
+
+  label:first-child {
+    width: 100%;
+  }
 }
