@@ -92,10 +92,6 @@ function format(number) {
   }).format(number);
 }
 
-function formatPercent(number) {
-  return Intl.NumberFormat('pt-br').format(number)
-}
-
 function calculateSalaryFrom(fullSalary) {
   const baseINSS = +fullSalary;
   const discountINSS = calculateDiscountINSS(baseINSS);
@@ -112,12 +108,12 @@ function calculateSalaryFrom(fullSalary) {
     fullSalary,
     baseINSS: format(baseINSS),
     discountINSS: format(discountINSS),
-    percentINSS: formatPercent(percentINSS),
+    percentINSS,
     baseIRPF: format(baseIRPF),
     discountIRPF: format(discountIRPF),
-    percentIRPF: formatPercent(percentIRPF),
+    percentIRPF,
     netSalary: format(netSalary),
-    percentNetSalary: formatPercent(percentNetSalary),
+    percentNetSalary
   };
 }
 
