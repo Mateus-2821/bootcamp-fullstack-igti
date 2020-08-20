@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 96%;
+  max-width: 940px;
+  margin: auto;
+} 
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
